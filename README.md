@@ -26,12 +26,12 @@
 
 Here is the branch of **[WebArena](https://github.com/web-arena-x/webarena)** used in **[AutoManual](https://arxiv.org/abs/2405.16247)**. We have made the following **corrections and improvements** to the original WebArena so that LLM Agents can obtain correct information:
 
-- After each action is executed, an additional "none_action" is executed, to ensure that the action has been completed.
-- The scroll bar information of the web page is added to the observation, to indicate the location of the current visible area.
-- When a focused element has a property of "hasPopup", its current value and options in the popup menu will be displayed. (Fix the [issue](https://github.com/web-arena-x/webarena/issues/121) that the original env cannot display the content in the popup menu)
-- Add "select" action for id-based actions, allowing the agent to select an option in a popup menu.
-- Add "fill" action for id-based actions, allowing the agent to clear existing content before type.
-- Fix the [issue](https://github.com/web-arena-x/webarena/issues/139) of fuzzy match a list.
+1. After each action is executed, an additional "none_action" is executed, to ensure that the action has been completed.
+2. The scroll bar information of the web page is added to the observation, to indicate the location of the current visible area.
+3. When a focused element has a property of "hasPopup", its current value and options in the popup menu will be displayed. (Fix the [issue](https://github.com/web-arena-x/webarena/issues/121) that the original env cannot display the content in the popup menu)
+4. Add "select" action for id-based actions, allowing the agent to select an option in a popup menu.
+5. Add "fill" action for id-based actions, allowing the agent to clear existing content before type.
+6. Fix the [issue](https://github.com/web-arena-x/webarena/issues/139) of fuzzy match a list.
 
 To facilitate comparison with the original branch, we added a comment starting with "# [cmh]:" to each modified code.
 
