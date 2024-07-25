@@ -168,7 +168,7 @@ class TextObervationProcessor(ObservationProcessor):
         )
 
         # Compute the overlap area
-        ratio = overlap_width * overlap_height / width * height
+        ratio = overlap_width * overlap_height / (width * height) # [cmh]: fix a small bug
         return ratio
 
     def fetch_page_html(
@@ -469,10 +469,33 @@ class TextObervationProcessor(ObservationProcessor):
             ]
 
         return accessibility_tree
-
+    
     @staticmethod
+    def get_popup_value(client, backend_node_id):
+        """[cmh]: get the attributes of a popup node"""
+        remote_object = client.send(
+            "DOM.resolveNode", {"backendNodeId": int(backend_node_id)}
+        )
+        remote_object_id = remote_object["object"]["objectId"]
+        response = client.send(
+            "Runtime.callFunctionOn",
+            {
+                "objectId": remote_object_id,
+                "functionDeclaration": """
+                    function() {
+                        return {
+                            title: this.title,
+                            value: this.value,
+                            options: Array.from(this.options).map(option => option.textContent.trim())
+                        };
+                    }""",
+                "returnByValue": True,
+            },
+        )
+        return response['result']['value']
+
     def parse_accessibility_tree(
-        accessibility_tree: AccessibilityTree,
+        self, client, accessibility_tree: AccessibilityTree,
     ) -> tuple[str, dict[str, Any]]:
         """Parse the accessibility tree into a string text"""
         node_id_to_idx = {}
@@ -498,11 +521,23 @@ class TextObervationProcessor(ObservationProcessor):
                         properties.append(
                             f'{property["name"]}: {property["value"]["value"]}'
                         )
+                        # [cmh]: show the value and options of a hasPopup node
+                        if property["name"] == "hasPopup":
+                            result = self.get_popup_value(client, str(node["backendDOMNodeId"]))
+                            if result['value']:
+                                properties.append(f"(current value: \"{result['value']}\")")
+                            if "focused: True" in properties:
+                                options = ' | '.join(result['options'])
+                                properties.append(f"(options in the expanded menu: {options})")
                     except KeyError:
                         pass
 
                 if properties:
                     node_str += " " + " ".join(properties)
+                    # [cmh]: clean the output string
+                    node_str = node_str.replace(" required: False", "")
+                    if "options in the expanded menu" in node_str:
+                        node_str = node_str.replace(" expanded: False", "")
 
                 # check valid
                 if not node_str.strip():
@@ -602,7 +637,7 @@ class TextObervationProcessor(ObservationProcessor):
         try:
             browser_info = self.fetch_browser_info(page, client)
         except Exception:
-            page.wait_for_load_state("load", timeout=500)
+            page.wait_for_load_state("load", timeout=10000) # [cmh]: increase timeout
             browser_info = self.fetch_browser_info(page, client)
 
         if self.observation_type == "html":
@@ -623,6 +658,7 @@ class TextObervationProcessor(ObservationProcessor):
                 current_viewport_only=self.current_viewport_only,
             )
             content, obs_nodes_info = self.parse_accessibility_tree(
+                client,
                 accessibility_tree
             )
             content = self.clean_accesibility_tree(content)
@@ -633,17 +669,42 @@ class TextObervationProcessor(ObservationProcessor):
             raise ValueError(
                 f"Invalid observatrion type: {self.observation_type}"
             )
+        
+        # [cmh]: Get scroll information using JavaScript
+        result = page.evaluate("""() => {
+            const scrollTop = window.scrollY;
+            const innerHeight = window.innerHeight;
+            const totalHeight = document.documentElement.scrollHeight;
 
+            return {
+                atTop: scrollTop === 0,
+                atBottom: scrollTop + innerHeight >= totalHeight,
+                abovePercent: scrollTop / totalHeight,
+                belowPercent: (totalHeight - (scrollTop + innerHeight)) / totalHeight,
+            };
+        }""")
+
+        if result['atTop'] and result['atBottom']:
+            scoll_info = "All content is visible."
+        else:
+            scoll_info = []
+            if not result['atTop']:
+                scoll_info.append(f"The area above the visible region contains {result['abovePercent']:.0%} of the total content.")
+            if not result['atBottom']:
+                scoll_info.append(f"The area below the visible region still contains {result['belowPercent']:.0%} of the total content.")
+            scoll_info = " ".join(scoll_info)
+        
         self.browser_config = browser_info["config"]
-        content = f"{tab_title_str}\n\n{content}"
+        content = f"{tab_title_str}\n\n{content}\nScroll Bar: {scoll_info}"
         return content
 
     def get_element_center(self, element_id: str) -> tuple[float, float]:
         node_info = self.obs_nodes_info[element_id]
         node_bound = node_info["union_bound"]
         x, y, width, height = node_bound
-        center_x = x + width / 2
-        center_y = y + height / 2
+        # [cmh]: fix clicking the exact center of a product link may fail in shopping
+        center_x = x + width * 0.45
+        center_y = y + height * 0.45
         return (
             center_x / self.viewport_size["width"],
             center_y / self.viewport_size["height"],

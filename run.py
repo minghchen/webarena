@@ -12,6 +12,30 @@ from pathlib import Path
 
 import openai
 
+os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
+openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.base_url = os.environ["OPENAI_BASE_URL"]
+
+# set the URLs of each website, we use the sites on AWS
+AWS_HOSTNAME = os.environ["AWS_HOSTNAME"]
+os.environ["SHOPPING"] = f"http://{AWS_HOSTNAME}:7770"
+os.environ["SHOPPING_ADMIN"] = f"http://{AWS_HOSTNAME}:7780/admin"
+os.environ["REDDIT"] = f"http://{AWS_HOSTNAME}:9999"
+os.environ["GITLAB"] = f"http://{AWS_HOSTNAME}:8023"
+os.environ["MAP"] = f"http://{AWS_HOSTNAME}:3000"
+os.environ["WIKIPEDIA"] = f"http://{AWS_HOSTNAME}:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
+os.environ["HOMEPAGE"] = f"http://{AWS_HOSTNAME}:4399"
+print("Done setting up URLs")
+
+# First, run `python scripts/generate_test_data.py` to generate the config files
+p = subprocess.run(["python", "../webarena/scripts/generate_test_data.py"], capture_output=True)
+# It will generate individual config file for each test example in config_files
+assert os.path.exists("config_files/0.json")
+
+# re-validate login information
+subprocess.run(["python", "../webarena/browser_env/auto_login.py"])
+print("Done saving account cookies")
+
 from agent import (
     Agent,
     PromptAgent,
@@ -347,7 +371,7 @@ def test(
                     Path(args.result_dir) / "traces" / f"{task_id}.zip"
                 )
 
-        except openai.error.OpenAIError as e:
+        except openai.OpenAIError as e:
             logger.info(f"[OpenAI Error] {repr(e)}")
         except Exception as e:
             logger.info(f"[Unhandled Error] {repr(e)}]")

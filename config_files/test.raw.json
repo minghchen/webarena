@@ -694,7 +694,6 @@
       ],
       "reference_answers": {
         "must_include": [
-          "Joseph Brzezinski",
           "Catso",
           "Dibbins",
           "Anglebert Dinkherhump",
@@ -704,7 +703,7 @@
       "reference_url": "",
       "program_html": [],
       "string_note": "",
-      "reference_answer_raw_annotation": "Joseph Brzezinski, Catso, Dibbins, Anglebert Dinkherhump, Michelle Davis"
+      "reference_answer_raw_annotation": "Catso, Dibbins, Anglebert Dinkherhump, Michelle Davis"
     },
     "intent_template_id": 222
   },
@@ -914,13 +913,13 @@
       ],
       "reference_answers": {
         "must_include": [
-          "0"
+          "1"
         ]
       },
       "reference_url": "",
       "program_html": [],
       "string_note": "",
-      "reference_answer_raw_annotation": "0"
+      "reference_answer_raw_annotation": "1"
     },
     "intent_template_id": 33
   },
@@ -3015,11 +3014,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Telll me the grand total of invoice {{id}}.",
+    "intent_template": "Tell me the grand total of invoice {{id}}.",
     "instantiation_dict": {
       "id": "000000001"
     },
-    "intent": "Telll me the grand total of invoice 000000001.",
+    "intent": "Tell me the grand total of invoice 000000001.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3046,11 +3045,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Telll me the grand total of invoice {{id}}.",
+    "intent_template": "Tell me the grand total of invoice {{id}}.",
     "instantiation_dict": {
       "id": "000000002"
     },
-    "intent": "Telll me the grand total of invoice 000000002.",
+    "intent": "Tell me the grand total of invoice 000000002.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3412,11 +3411,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+    "intent_template": "Presents the monthly count of successful orders {{period}} in Mouth:Count format, e.g., January: 2 orders",
     "instantiation_dict": {
       "period": "from May to December 2022"
     },
-    "intent": "Presents the monthly count of successful orders from May to December 2022 in MM:COUNT format",
+    "intent": "Presents the monthly count of successful orders from May to December 2022 in Mouth:Count format, e.g., January: 2 orders",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3450,11 +3449,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+    "intent_template": "Presents the monthly count of successful orders {{period}} in Mouth:Count format, e.g., January: 2 orders",
     "instantiation_dict": {
       "period": "01/2023-05/2023"
     },
-    "intent": "Presents the monthly count of successful orders 01/2023-05/2023 in MM:COUNT format",
+    "intent": "Presents the monthly count of successful orders 01/2023-05/2023 in Mouth:Count format, e.g., January: 2 orders",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3485,11 +3484,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+    "intent_template": "Presents the monthly count of successful orders {{period}} in Mouth:Count format, e.g., January: 2 orders",
     "instantiation_dict": {
       "period": "from Jan to December 2022"
     },
-    "intent": "Presents the monthly count of successful orders from Jan to December 2022 in MM:COUNT format",
+    "intent": "Presents the monthly count of successful orders from Jan to December 2022 in Mouth:Count format, e.g., January: 2 orders",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3527,11 +3526,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+    "intent_template": "Presents the monthly count of successful orders {{period}} in Mouth:Count format, e.g., January: 2 orders",
     "instantiation_dict": {
       "period": "from Jan to Nov 2022"
     },
-    "intent": "Presents the monthly count of successful orders from Jan to Nov 2022 in MM:COUNT format",
+    "intent": "Presents the monthly count of successful orders from Jan to Nov 2022 in Mouth:Count format, e.g., January: 2 orders",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3568,11 +3567,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Presents the monthly count of successful orders {{period}} in MM:COUNT format",
+    "intent_template": "Presents the monthly count of successful orders {{period}} in Mouth:Count format, e.g., January: 2 orders",
     "instantiation_dict": {
       "period": "from Feb to Nov 2022"
     },
-    "intent": "Presents the monthly count of successful orders from Feb to Nov 2022 in MM:COUNT format",
+    "intent": "Presents the monthly count of successful orders from Feb to Nov 2022 in Mouth:Count format, e.g., January: 2 orders",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3608,11 +3607,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Show me the customers who have expressed dissatisfaction with {{product}}?",
+    "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}?",
     "instantiation_dict": {
-      "product": "Circe fleece"
+      "product": "Circe Fleece"
     },
-    "intent": "Show me the customers who have expressed dissatisfaction with Circe fleece?",
+    "intent": "Show me the name of the customers who have expressed dissatisfaction with Circe Fleece?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3637,11 +3636,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Show me the customers who have expressed dissatisfaction with {{product}}?",
+    "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}?",
     "instantiation_dict": {
       "product": "Olivia zip jacket"
     },
-    "intent": "Show me the customers who have expressed dissatisfaction with Olivia zip jacket?",
+    "intent": "Show me the name of the customers who have expressed dissatisfaction with Olivia zip jacket?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3669,11 +3668,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Show me the customers who have expressed dissatisfaction with {{product}}?",
+    "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}?",
     "instantiation_dict": {
       "product": "Antonia racer tank"
     },
-    "intent": "Show me the customers who have expressed dissatisfaction with Antonia racer tank?",
+    "intent": "Show me the name of the customers who have expressed dissatisfaction with Antonia racer tank?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -3701,11 +3700,11 @@
     "storage_state": "./.auth/shopping_admin_state.json",
     "start_url": "__SHOPPING_ADMIN__",
     "geolocation": null,
-    "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}",
+    "intent_template": "Show me the name of the customers who have expressed dissatisfaction with {{product}}?",
     "instantiation_dict": {
       "product": "Chloe tank"
     },
-    "intent": "Show me the name of the customers who have expressed dissatisfaction with Chloe tank",
+    "intent": "Show me the name of the customers who have expressed dissatisfaction with Chloe tank?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -4704,7 +4703,7 @@
         "string_match"
       ],
       "reference_answers": {
-        "must_include": [
+        "fuzzy_match": [
           "16x24"
         ]
       },
@@ -4737,7 +4736,7 @@
         "string_match"
       ],
       "reference_answers": {
-        "must_include": [
+        "fuzzy_match": [
           "16x24"
         ]
       },
@@ -6428,7 +6427,7 @@
       "attribute": "date",
       "status": "most recent canlled"
     },
-    "intent": "Get the date of the most recent canlled order",
+    "intent": "Get the date of the most recent cancelled order",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -6842,9 +6841,9 @@
     "geolocation": null,
     "intent_template": "What are the key aspects that the customers don't like about {{product}}",
     "instantiation_dict": {
-      "product": "Circe ice fleece"
+      "product": "Circe Ice Fleece"
     },
-    "intent": "What are the key aspects that the customers don't like about Circe ice fleece",
+    "intent": "What are the key aspects that the customers don't like about Circe Ice Fleece",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -7698,9 +7697,9 @@
     "intent_template": "Show me the {{information}} of the customer who is the most unhappy with {{product}}",
     "instantiation_dict": {
       "information": "email address",
-      "product": "Circe fleece"
+      "product": "Circe Fleece"
     },
-    "intent": "Show me the email address of the customer who is the most unhappy with Circe fleece",
+    "intent": "Show me the email address of the customer who is the most unhappy with Circe Fleece",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -8208,11 +8207,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "I want to browse the products in the {{category}} category",
+    "intent_template": "I want to navigate to the product page of the {{category}} category",
     "instantiation_dict": {
       "category": "Video Game"
     },
-    "intent": "I want to browse the products in the Video Game category",
+    "intent": "I want to navigate to the product page of the Video Game category",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -8234,18 +8233,18 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "I want to browse the products in the {{category}} category",
+    "intent_template": "I want to navigate to the product page of the {{category}} category",
     "instantiation_dict": {
       "category": "Headphones"
     },
-    "intent": "I want to browse the products in the Headphones category",
+    "intent": "I want to navigate to the product page of the Headphones category",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/electronics/headphones.html",
+      "reference_url": "__SHOPPING__/electronics/headphones.html |OR| __SHOPPING__/electronics.html?cat=60",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -8260,18 +8259,18 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "I want to browse the products in the {{category}} category",
+    "intent_template": "I want to navigate to the product page of the {{category}} category",
     "instantiation_dict": {
       "category": "Men shoes"
     },
-    "intent": "I want to browse the products in the Men shoes category",
+    "intent": "I want to navigate to the product page of the Men shoes category",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/men/shoes.html",
+      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/men/shoes.html |OR| __SHOPPING__/clothing-shoes-jewelry.html?cat=145 |OR| __SHOPPING__/clothing-shoes-jewelry/men.html?cat=145",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -8286,18 +8285,18 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "I want to browse the products in the {{category}} category",
+    "intent_template": "I want to navigate to the product page of the {{category}} category",
     "instantiation_dict": {
       "category": "Woman clothing"
     },
-    "intent": "I want to browse the products in the Woman clothing category",
+    "intent": "I want to navigate to the product page of the Woman clothing category",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/women/clothing.html",
+      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/women/clothing.html |OR| __SHOPPING__/clothing-shoes-jewelry.html?cat=143 |OR| __SHOPPING__/clothing-shoes-jewelry/women.html?cat=143",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -8312,18 +8311,18 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "I want to browse the products in the {{category}} category",
+    "intent_template": "I want to navigate to the product page of the {{category}} category",
     "instantiation_dict": {
       "category": "Cabinets, Racks & Shelves"
     },
-    "intent": "I want to browse the products in the Cabinets, Racks & Shelves category",
+    "intent": "I want to navigate to the product page of the Cabinets, Racks & Shelves category",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/office-products/office-furniture-lighting/cabinets-racks-shelves.html",
+      "reference_url": "__SHOPPING__/office-products/office-furniture-lighting/cabinets-racks-shelves.html |OR| __SHOPPING__/office-products.html?cat=187 |OR| __SHOPPING__/office-products/office-furniture-lighting.html?cat=187",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -8695,7 +8694,7 @@
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/catalogsearch/result/?q=iphone+13",
+      "reference_url": "__SHOPPING__/catalogsearch/result/?q=batteries+for+iphone+13",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -8736,8 +8735,10 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "Provide me with the complete names of Bluetooth headphones from Sony, and also share the price range for the available models",
-    "instantiation_dict": {},
+    "intent_template": "Provide me with the complete names of {{product}}, and also share the price range for the available models",
+    "instantiation_dict": {
+      "product": "Bluetooth headphones from Sony"
+    },
     "intent": "Provide me with the complete names of Bluetooth headphones from Sony, and also share the price range for the available models",
     "require_reset": false,
     "eval": {
@@ -8778,9 +8779,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "Provide me with the full names of chargers from Anker, and also share the price range for the available models",
-    "instantiation_dict": {},
-    "intent": "Provide me with the full names of chargers from Anker, and also share the price range for the available models",
+    "intent_template": "Provide me with the complete names of {{product}}, and also share the price range for the available models",
+    "instantiation_dict": {
+      "product": "chargers from Anker"
+    },
+    "intent": "Provide me with the complete names of chargers from Anker, and also share the price range for the available models",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -8820,9 +8823,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "Please provide me with the complete product names of Oral B brush heads designed for children, along with their corresponding price range per brush",
-    "instantiation_dict": {},
-    "intent": "Please provide me with the complete product names of Oral B brush heads designed for children, along with their corresponding price range per brush",
+    "intent_template": "Provide me with the complete names of {{product}}, and also share the price range for the available models",
+    "instantiation_dict": {
+      "product": "Oral B brush heads designed for children"
+    },
+    "intent": "Provide me with the complete names of Oral B brush heads designed for children, and also share the price range for the available models",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -8852,9 +8857,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List the full product names of slide slippers from Nike and tell me the price range of the available products",
-    "instantiation_dict": {},
-    "intent": "List the full product names of slide slippers from Nike and tell me the price range of the available products",
+    "intent_template": "Provide me with the complete names of {{product}}, and also share the price range for the available models",
+    "instantiation_dict": {
+      "product": "slide slippers from Nike"
+    },
+    "intent": "Provide me with the complete names of slide slippers from Nike, and also share the price range for the available models",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -9960,11 +9967,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "How much refund I should expect from my order canlled in {{time}}, including shipping fee",
+    "intent_template": "How much refund I should expect from my order cancelled in {{time}}, including shipping fee",
     "instantiation_dict": {
       "time": "April 2022"
     },
-    "intent": "How much refund I should expect from my order canlled in April 2022, including shipping fee",
+    "intent": "How much refund I should expect from my order cancelled in April 2022, including shipping fee",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -9991,11 +9998,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "How much refund I should expect from my order canlled in {{time}}, including shipping fee",
+    "intent_template": "How much refund I should expect from my order cancelled in {{time}}, including shipping fee",
     "instantiation_dict": {
       "time": "Feb 2023"
     },
-    "intent": "How much refund I should expect from my order canlled in Feb 2023, including shipping fee",
+    "intent": "How much refund I should expect from my order cancelled in Feb 2023, including shipping fee",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -10022,11 +10029,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "How much refund I should expect from my order canlled in {{time}}, including shipping fee",
+    "intent_template": "How much refund I should expect from my order cancelled in {{time}}, including shipping fee",
     "instantiation_dict": {
       "time": "2022"
     },
-    "intent": "How much refund I should expect from my order canlled in 2022, including shipping fee",
+    "intent": "How much refund I should expect from my order cancelled in 2022, including shipping fee",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -10053,11 +10060,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "How much refund I should expect from my order canlled in {{time}} if I cannot get the shipping fee refunded?",
+    "intent_template": "How much refund I should expect from my order cancelled in {{time}} if I cannot get the shipping fee refunded?",
     "instantiation_dict": {
       "time": "May 2023"
     },
-    "intent": "How much refund I should expect from my order canlled in May 2023 if I cannot get the shipping fee refunded?",
+    "intent": "How much refund I should expect from my order cancelled in May 2023 if I cannot get the shipping fee refunded?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -10084,11 +10091,11 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "How much refund I should expect from my order canlled in {{time}}? I only kept the AC-DC Adapter and the shop told me that I cannot get the shipping fee back",
+    "intent_template": "How much refund I should expect from my order cancelled in {{time}}? I only kept the AC-DC Adapter and the shop told me that I cannot get the shipping fee back",
     "instantiation_dict": {
       "time": "2022/03"
     },
-    "intent": "How much refund I should expect from my order canlled in 2022/03? I only kept the AC-DC Adapter and the shop told me that I cannot get the shipping fee back",
+    "intent": "How much refund I should expect from my order cancelled in 2022/03? I only kept the AC-DC Adapter and the shop told me that I cannot get the shipping fee back",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -10154,7 +10161,7 @@
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/catalogsearch/result/index/?q=mouth%20night%20guard%20&product_list_order=price",
+      "reference_url": "__SHOPPING__/catalogsearch/result/index/?q=mouth%20night%20guard%20&product_list_order=price |OR| __SHOPPING__/catalogsearch/result/index/?product_list_order=price&q=mouth%20night%20guard",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10181,7 +10188,7 @@
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/catalogsearch/result/?q=Canon+photo+printer",
+      "reference_url": "__SHOPPING__/catalogsearch/result/?q=Canon+photo+printer |OR| __SHOPPING__/catalogsearch/result/index/?q=Canon%20photo%20printer",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10208,7 +10215,7 @@
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/catalogsearch/result/index/?q=%20iphone%2012%20phone%20case&product_list_order=name",
+      "reference_url": "__SHOPPING__/catalogsearch/result/index/?q=%20iphone%2012%20phone%20case&product_list_order=name |OR| __SHOPPING__/catalogsearch/result/index/?product_list_order=name&q=%20iphone%2012%20phone%20case |OR| __SHOPPING__/catalogsearch/result/index/?product_list_order=name&q=iphone%2012%20phone%20case&product_list_dir=asc",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10235,7 +10242,7 @@
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/catalogsearch/result/index/?product_list_order=price&q=%20iphone%2012%20phone%20case",
+      "reference_url": "__SHOPPING__/catalogsearch/result/index/?q=iphone%2012%20phone%20case&product_list_order=price |OR| __SHOPPING__/catalogsearch/result/index/?product_list_order=price&q=%20iphone%2012%20phone%20case",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10907,19 +10914,19 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List products from {{product_category}} category by {{order}} price",
+    "intent_template": "Show products from {{product_category}} category by {{order}} price",
     "instantiation_dict": {
       "product_category": "PS4 accessories",
       "order": "ascending"
     },
-    "intent": "List products from PS4 accessories category by ascending price",
+    "intent": "Show products from PS4 accessories category by ascending price",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/video-games/playstation-4/accessories.html?product_list_order=price",
+      "reference_url": "__SHOPPING__/video-games/playstation-4/accessories.html?product_list_order=price |OR| __SHOPPING__/video-games.html?cat=236&product_list_order=price |OR| __SHOPPING__/video-games/playstation-4.html?cat=236&product_list_order=price",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10934,19 +10941,19 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List products from {{product_category}} category by {{order}} price",
+    "intent_template": "Show products from {{product_category}} category by {{order}} price",
     "instantiation_dict": {
       "product_category": "nutrition bars and drinks",
       "order": "ascending"
     },
-    "intent": "List products from nutrition bars and drinks category by ascending price",
+    "intent": "Show products from nutrition bars and drinks category by ascending price",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/health-household/diet-sports-nutrition/nutrition-bars-drinks.html?product_list_order=price",
+      "reference_url": "__SHOPPING__/health-household/diet-sports-nutrition/nutrition-bars-drinks.html?product_list_order=price |OR| __SHOPPING__/health-household.html?cat=192&product_list_order=price |OR| __SHOPPING__/health-household/diet-sports-nutrition.html?cat=192&product_list_order=price",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10961,19 +10968,19 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List products from {{product_category}} category by {{order}} price",
+    "intent_template": "Show products from {{product_category}} category by {{order}} price",
     "instantiation_dict": {
       "product_category": "competitive swimwear",
       "order": "ascending"
     },
-    "intent": "List products from competitive swimwear category by ascending price",
+    "intent": "Show products from competitive swimwear category by ascending price",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/sport-specific-clothing/competitive-swimwear.html?product_list_order=price",
+      "reference_url": "__SHOPPING__/clothing-shoes-jewelry/sport-specific-clothing/competitive-swimwear.html?product_list_order=price |OR| __SHOPPING__/clothing-shoes-jewelry.html?cat=149&product_list_order=price |OR| __SHOPPING__/clothing-shoes-jewelry/sport-specific-clothing.html?cat=149&product_list_order=price",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -10988,19 +10995,19 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List products from {{product_category}} category by {{order}} price",
+    "intent_template": "Show products from {{product_category}} category by {{order}} price",
     "instantiation_dict": {
       "product_category": "living room furtniture",
       "order": "descending"
     },
-    "intent": "List products from living room furtniture category by descending price",
+    "intent": "Show products from living room furtniture category by descending price",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/home-kitchen/furniture/living-room-furniture.html?product_list_order=price&product_list_dir=desc",
+      "reference_url": "__SHOPPING__/home-kitchen/furniture/living-room-furniture.html?product_list_order=price&product_list_dir=desc |OR| __SHOPPING__/home-kitchen.html?cat=154&product_list_order=price&product_list_dir=desc |OR| __SHOPPING__/home-kitchen/furniture.html?cat=154&product_list_order=price&product_list_dir=desc",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -11015,19 +11022,19 @@
     "storage_state": "./.auth/shopping_state.json",
     "start_url": "__SHOPPING__",
     "geolocation": null,
-    "intent_template": "List products from {{product_category}} category by {{order}} price",
+    "intent_template": "Show products from {{product_category}} category by {{order}} price",
     "instantiation_dict": {
       "product_category": "kids' bedding",
       "order": "descending"
     },
-    "intent": "List products from kids' bedding category by descending price",
+    "intent": "Show products from kids' bedding category by descending price",
     "require_reset": false,
     "eval": {
       "eval_types": [
         "url_match"
       ],
       "reference_answers": null,
-      "reference_url": "__SHOPPING__/home-kitchen/bedding/kids-bedding.html?product_list_dir=desc",
+      "reference_url": "__SHOPPING__/home-kitchen/bedding/kids-bedding.html?product_list_dir=desc |OR| __SHOPPING__/home-kitchen.html?cat=155&product_list_order=price&product_list_dir=desc |OR| __SHOPPING__/home-kitchen/bedding.html?cat=155&product_list_order=price&product_list_dir=desc",
       "program_html": [],
       "url_note": "GOLD in PRED"
     },
@@ -12751,7 +12758,7 @@
       "reference_url": "",
       "program_html": [
         {
-          "url": "__REDDIT__/f/deeplearning/124993/meta-s-llama-weights-leaked-on-torrent-and-the-best-thing",
+          "url": "__REDDIT__/f/deeplearning/125036/should-i-continue-with-this",
           "locator": "document.querySelector('div.submission__vote').querySelector('form').getAttribute('class')",
           "required_contents": {
             "must_include": [
@@ -12786,7 +12793,7 @@
       "reference_url": "",
       "program_html": [
         {
-          "url": "__REDDIT__/f/explainlikeimfive/39244/eli5-how-does-pinching-a-ribbon-and-sliding-your-finger",
+          "url": "__REDDIT__/f/explainlikeimfive/125342/eli5-why-does-pressing-my-palms-against-my-eyes-create-a",
           "locator": "document.querySelector('div.submission__vote').querySelector('form').getAttribute('class')",
           "required_contents": {
             "must_include": [
@@ -19247,7 +19254,7 @@
     "intent_template": "Create a new forum named {{name}}, with a description of {{description}}, and include {{sidebar_list}} in the sidebar?",
     "instantiation_dict": {
       "name": "PlantsForCatParents",
-      "description": "Cat parents & plan lovers",
+      "description": "Cat parents & plant lovers",
       "sidebar_list": [
         "Cat friendly",
         "Local vendors",
@@ -19255,7 +19262,7 @@
         "Toxic plants!"
       ]
     },
-    "intent": "Create a new forum named PlantsForCatParents, with a description of Cat parents & plan lovers, and include ['Cat friendly', 'Local vendors', 'Promotion', 'Toxic plants!'] in the sidebar?",
+    "intent": "Create a new forum named PlantsForCatParents, with a description of Cat parents & plant lovers, and include ['Cat friendly', 'Local vendors', 'Promotion', 'Toxic plants!'] in the sidebar?",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -19269,7 +19276,7 @@
           "locator": "document.querySelector(\"#forum_description\").value",
           "required_contents": {
             "must_include": [
-              "Cat parents & plan lovers"
+              "Cat parents & plant lovers"
             ]
           }
         },
@@ -19317,7 +19324,7 @@
       "reference_url": "",
       "program_html": [
         {
-          "url": "__REDDIT__/f/Karaoke",
+          "url": "__REDDIT__/f/Karaoke/edit",
           "locator": "document.querySelector(\"#forum_description\").value",
           "required_contents": {
             "must_include": [
@@ -19326,7 +19333,7 @@
           }
         },
         {
-          "url": "__REDDIT__/f/Karaoke",
+          "url": "__REDDIT__/f/Karaoke/edit",
           "locator": "document.querySelector(\"#forum_sidebar\").value",
           "required_contents": {
             "must_include": [
@@ -20161,9 +20168,9 @@
     "geolocation": null,
     "intent_template": "Post my question, \"{{question}}\", in a subreddit where I'm likely to get an answer",
     "instantiation_dict": {
-      "question": "safe and budge apartment to live in nyc"
+      "question": "safe and budget apartment to live in nyc"
     },
-    "intent": "Post my question, \"safe and budge apartment to live in nyc\", in a subreddit where I'm likely to get an answer",
+    "intent": "Post my question, \"safe and budget apartment to live in nyc\", in a subreddit where I'm likely to get an answer",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -20178,7 +20185,7 @@
           "locator": "document.querySelector('.submission__inner').outerText",
           "required_contents": {
             "must_include": [
-              "safe and budge apartment to live in nyc"
+              "safe and budget apartment to live in nyc"
             ]
           }
         }
@@ -20350,9 +20357,9 @@
     "intent_template": "Find a subreddit focused on topics related to {{topic}}, and post my question, \"{{question}}\" there",
     "instantiation_dict": {
       "topic": "city lives in DMV area",
-      "question": "safe and budge apartment to live"
+      "question": "safe and budget apartment to live"
     },
-    "intent": "Find a subreddit focused on topics related to city lives in DMV area, and post my question, \"safe and budge apartment to live\" there",
+    "intent": "Find a subreddit focused on topics related to city lives in DMV area, and post my question, \"safe and budget apartment to live\" there",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -20367,7 +20374,7 @@
           "locator": "document.querySelector('.submission__inner').outerText",
           "required_contents": {
             "must_include": [
-              "safe and budge apartment to live"
+              "safe and budget apartment to live"
             ]
           }
         }
@@ -21804,9 +21811,9 @@
     "instantiation_dict": {
       "interest": "Tears of Kingdom",
       "date": "Dec 15th",
-      "subreddit": "games"
+      "subreddit": "gaming"
     },
-    "intent": "Post a notice on a virtual meetup for Tears of Kingdom enthusiasts on Dec 15th in the games subreddit",
+    "intent": "Post a notice on a virtual meetup for Tears of Kingdom enthusiasts on Dec 15th in the gaming subreddit",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -21814,7 +21821,7 @@
         "program_html"
       ],
       "reference_answers": null,
-      "reference_url": "__REDDIT__/f/games",
+      "reference_url": "__REDDIT__/f/gaming",
       "program_html": [
         {
           "url": "func:reddit_get_post_url('__last_url__')",
@@ -21841,11 +21848,11 @@
     "storage_state": "./.auth/reddit_state.json",
     "start_url": "__REDDIT__",
     "geolocation": null,
-    "intent_template": "Post in {{subreddit}} subreddit about what could machine learning help the correpong field.",
+    "intent_template": "Post in {{subreddit}} subreddit about what could machine learning help the corresponding field.",
     "instantiation_dict": {
       "subreddit": "books"
     },
-    "intent": "Post in books subreddit about what could machine learning help the correpong field.",
+    "intent": "Post in books subreddit about what could machine learning help the corresponding field.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -21879,11 +21886,11 @@
     "storage_state": "./.auth/reddit_state.json",
     "start_url": "__REDDIT__",
     "geolocation": null,
-    "intent_template": "Post in {{subreddit}} subreddit about what could midjourney help the correpong field.",
+    "intent_template": "Post in {{subreddit}} subreddit about what could midjourney help the corresponding field.",
     "instantiation_dict": {
       "subreddit": "DIY"
     },
-    "intent": "Post in DIY subreddit about what could midjourney help the correpong field.",
+    "intent": "Post in DIY subreddit about what could midjourney help the corresponding field.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -21917,11 +21924,11 @@
     "storage_state": "./.auth/reddit_state.json",
     "start_url": "__REDDIT__",
     "geolocation": null,
-    "intent_template": "Post in {{subreddit}} forum about what could open-source LLMs help the correpong field.",
+    "intent_template": "Post in {{subreddit}} forum about what could open-source LLMs help the corresponding field.",
     "instantiation_dict": {
       "subreddit": "technology"
     },
-    "intent": "Post in technology forum about what could open-source LLMs help the correpong field.",
+    "intent": "Post in technology forum about what could open-source LLMs help the corresponding field.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -21955,11 +21962,11 @@
     "storage_state": "./.auth/reddit_state.json",
     "start_url": "__REDDIT__",
     "geolocation": null,
-    "intent_template": "Post in {{subreddit}} forum about what could large language models help the correpong field.",
+    "intent_template": "Post in {{subreddit}} forum about what could large language models help the corresponding field.",
     "instantiation_dict": {
       "subreddit": "dataisbeautiful"
     },
-    "intent": "Post in dataisbeautiful forum about what could large language models help the correpong field.",
+    "intent": "Post in dataisbeautiful forum about what could large language models help the corresponding field.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -21993,11 +22000,11 @@
     "storage_state": "./.auth/reddit_state.json",
     "start_url": "__REDDIT__",
     "geolocation": null,
-    "intent_template": "Post in {{subreddit}} subreddit about what could diffusion model help the correpong field.",
+    "intent_template": "Post in {{subreddit}} subreddit about what could diffusion model help the corresponding field.",
     "instantiation_dict": {
       "subreddit": "history"
     },
-    "intent": "Post in history subreddit about what could diffusion model help the correpong field.",
+    "intent": "Post in history subreddit about what could diffusion model help the corresponding field.",
     "require_reset": false,
     "eval": {
       "eval_types": [
@@ -28028,9 +28035,9 @@
     "geolocation": null,
     "intent_template": "Delete all {{review_type}}",
     "instantiation_dict": {
-      "review_type": "pending negative reviews for Circe fleece"
+      "review_type": "pending negative reviews for Circe Fleece"
     },
-    "intent": "Delete all pending negative reviews for Circe fleece",
+    "intent": "Delete all pending negative reviews for Circe Fleece",
     "require_reset": false,
     "eval": {
       "eval_types": [

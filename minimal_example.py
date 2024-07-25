@@ -8,28 +8,15 @@ import subprocess
 import time
 
 SLEEP = 1.5
-# set the URLs of each website, we use the demo sites as an example
-os.environ[
-    "SHOPPING"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7770"
-os.environ[
-    "SHOPPING_ADMIN"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/admin"
-os.environ[
-    "REDDIT"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:9999"
-os.environ[
-    "GITLAB"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:8023"
-os.environ[
-    "MAP"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:3000"
-os.environ[
-    "WIKIPEDIA"
-] = "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
-os.environ[
-    "HOMEPAGE"
-] = "PASS"  # The home page is not currently hosted in the demo site
+# set the URLs of each website, we use the sites on AWS
+AWS_HOSTNAME = os.environ["AWS_HOSTNAME"]
+os.environ["SHOPPING"] = f"http://{AWS_HOSTNAME}:7770"
+os.environ["SHOPPING_ADMIN"] = f"http://{AWS_HOSTNAME}:7780/admin"
+os.environ["REDDIT"] = f"http://{AWS_HOSTNAME}:9999"
+os.environ["GITLAB"] = f"http://{AWS_HOSTNAME}:8023"
+os.environ["MAP"] = f"http://{AWS_HOSTNAME}:3000"
+os.environ["WIKIPEDIA"] = f"http://{AWS_HOSTNAME}:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
+os.environ["HOMEPAGE"] = f"http://{AWS_HOSTNAME}:4399"
 print("Done setting up URLs")
 
 # First, run `python scripts/generate_test_data.py` to generate the config files
@@ -102,7 +89,7 @@ print(actree_obs)
                 [104] generic '8 merge requests'"""
 
 # save the state info to the trajectory
-state_info: StateInfo = {"observation": obs, "info": info}
+state_info = {"observation": obs, "info": info}
 trajectory.append(state_info)
 
 # Now let's try to perform the action of clicking the "Merge request" link

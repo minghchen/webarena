@@ -123,9 +123,15 @@ def action2str(
             case ActionTypes.CLICK:
                 # [ID=X] xxxxx
                 action_str = f"click [{element_id}] where [{element_id}] is {semantic_element}"
-            case ActionTypes.TYPE:
+            case ActionTypes.SELECT_OPTION:
+                # [cmh]: add select-option action for id based action
                 text = "".join([_id2key[i] for i in action["text"]])
-                text = text.replace("\n", " ")
+                action_str = f"select [{text}] at [{element_id}] where [{element_id}] is {semantic_element}"
+            case ActionTypes.TYPE:
+                # [cmh]: add fill action for id based action
+                text = "".join([_id2key[i] for i in action["text"]])
+                text = text.strip("~")
+                text = text.replace("\n", "")
                 action_str = f"type [{element_id}] [{text}] where [{element_id}] is {semantic_element}"
             case ActionTypes.HOVER:
                 action_str = f"hover [{element_id}] where [{element_id}] is {semantic_element}"
@@ -696,12 +702,23 @@ def create_check_action(pw_code: str) -> Action:
 
 
 def create_select_option_action(
-    pw_code: str,
+    element_id: str = "",
+    element_role: RolesType = "combobox",
+    element_name: str = "",
+    text="",
+    pw_code: str = "",
+    nth: int = 0,
 ) -> Action:
+    # [cmh]: add select-option action for id based action
     action = create_none_action()
     action.update(
         {
             "action_type": ActionTypes.SELECT_OPTION,
+            "element_id": element_id,
+            "element_role": _role2id[element_role],
+            "element_name": element_name,
+            "nth": nth,
+            "text": _keys2ids(text),
             "pw_code": pw_code,
         }
     )
@@ -838,6 +855,29 @@ def execute_mouse_click(left: float, top: float, page: Page) -> None:
         left * viewport_size["width"], top * viewport_size["height"]
     )
 
+def execute_select_option(keys: list[int], page: Page) -> None:
+    """[cmh]: Select an option on the current focused element."""
+    option = "".join([_id2key[key] for key in keys])
+    result = page.evaluate(f"""() => {{
+        const element = document.activeElement;
+        if (element.tagName === 'SELECT') {{
+            const options = Array.from(element.options);
+            const targetOption = options.find(option => option.textContent.trim() === '{option}');
+            if (targetOption) {{
+                for (const option of options) {{
+                    option.selected = option === targetOption;
+                }}
+                element.dispatchEvent(new Event('change', {{bubbles: true}}));
+                return 'Option selected';
+            }} else {{
+                return 'Option not found';
+            }}
+        }} else {{
+            return 'Focused element is not a select';
+        }}
+    }}""")
+    print(result)
+
 
 async def aexecute_mouse_click(left: float, top: float, page: APage) -> None:
     """Click at coordinates (left, top)."""
@@ -886,13 +926,25 @@ async def aexecute_click_current(page: APage) -> None:
 def execute_type(keys: list[int], page: Page) -> None:
     """Send keystrokes to the focused element."""
     text = "".join([_id2key[key] for key in keys])
-    page.keyboard.type(text)
+    # [cmh]: add fill action for id based action.
+    if text.startswith("~"):
+        text = text.strip("~")
+        locators = page.locator("*:focus")
+        locators.fill(text)
+    else:
+        page.keyboard.type(text)
 
 
 async def aexecute_type(keys: list[int], page: APage) -> None:
     """Send keystrokes to the focused element."""
     text = "".join([_id2key[key] for key in keys])
-    await page.keyboard.type(text)
+    # [cmh]: add fill action for id based action.
+    if text.startswith("~"):
+        text = text.strip("~")
+        locators = page.locator("*:focus")
+        await locators.fill(text)
+    else:
+        await page.keyboard.type(text)
 
 
 def execute_focus(
@@ -1205,7 +1257,14 @@ def execute_action(
                 page = browser_ctx.new_page()
 
         case ActionTypes.SELECT_OPTION:
-            if action["pw_code"]:
+            # [cmh]: add select-option action for id based action
+            if action["element_id"]:
+                element_id = action["element_id"]
+                option = action["text"]
+                element_center = obseration_processor.get_element_center(element_id)  # type: ignore[attr-defined]
+                execute_mouse_click(element_center[0], element_center[1], page)
+                execute_select_option(option, page)
+            elif action["pw_code"]:
                 parsed_code = parse_playwright_code(action["pw_code"])
                 locator_code = parsed_code[:-1]
                 execute_playwright_select_option(locator_code, page)
@@ -1335,7 +1394,9 @@ async def aexecute_action(
                 page = await browser_ctx.new_page()
 
         case ActionTypes.SELECT_OPTION:
-            if action["pw_code"]:
+            if action["element_id"]:
+                raise NotImplementedError
+            elif action["pw_code"]:
                 parsed_code = parse_playwright_code(action["pw_code"])
                 locator_code = parsed_code[:-1]
                 await aexecute_playwright_select_option(locator_code, page)
@@ -1514,6 +1575,13 @@ def create_id_based_action(action_str: str) -> Action:
                 raise ActionParsingError(f"Invalid click action {action_str}")
             element_id = match.group(1)
             return create_click_action(element_id=element_id)
+        case "select":
+            # [cmh]: add select-option action for id based action
+            match = re.search(r"select \[(\d+)\] \[([^\]]*)\]", action_str)
+            if not match:
+                raise ActionParsingError(f"Invalid select action {action_str}")
+            element_id, text = (match.group(1), match.group(2))
+            return create_select_option_action(element_id=element_id, text=text)
         case "hover":
             match = re.search(r"hover ?\[(\d+)\]", action_str)
             if not match:
@@ -1525,16 +1593,22 @@ def create_id_based_action(action_str: str) -> Action:
             if not (action_str.endswith("[0]") or action_str.endswith("[1]")):
                 action_str += " [1]"
 
-            match = re.search(
-                r"type ?\[(\d+)\] ?\[(.+)\] ?\[(\d+)\]", action_str
-            )
+            if not re.search(r'\[\d\] \[\d\]$', action_str):
+                action_str += " [1]"
+
+            match = re.search(r"type ?\[(\d+)\] ?\[(.+)\] ?\[(\d+)\] ?\[(\d+)\]", action_str, re.DOTALL)
             if not match:
                 raise ActionParsingError(f"Invalid type action {action_str}")
-            element_id, text, enter_flag = (
+            element_id, text, clear_flag, enter_flag = (
                 match.group(1),
                 match.group(2),
                 match.group(3),
+                match.group(4),
             )
+            # [cmh]: add fill action for id based action.
+            # If clear_flag is 1, the existing content in the textbox will be cleared
+            if clear_flag == "1":
+                text = "~" + text
             if enter_flag == "1":
                 text += "\n"
             return create_type_action(text=text, element_id=element_id)

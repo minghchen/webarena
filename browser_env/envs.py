@@ -21,7 +21,7 @@ from playwright.sync_api import (
     sync_playwright,
 )
 
-from .actions import Action, execute_action, get_action_space
+from .actions import Action, execute_action, get_action_space, create_none_action
 from .processors import ObservationHandler, ObservationMetadata
 from .utils import (
     AccessibilityTree,
@@ -144,6 +144,7 @@ class ScriptBrowserEnv(Env[dict[str, Observation], Action]):
             storage_state=storage_state,
             geolocation=geolocation,
             device_scale_factor=1,
+            locale="en_US"
         )
         if self.save_trace_enabled:
             self.context.tracing.start(screenshots=True, snapshots=True)
@@ -233,7 +234,7 @@ class ScriptBrowserEnv(Env[dict[str, Observation], Action]):
     ) -> tuple[dict[str, Observation], float, bool, bool, dict[str, Any]]:
         if not self.reset_finished:
             raise RuntimeError("Call reset first before calling step.")
-
+        init_pages = len(self.context.pages)
         success = False
         fail_error = ""
         try:
@@ -266,4 +267,17 @@ class ScriptBrowserEnv(Env[dict[str, Observation], Action]):
             False,  # truncated
             info,
         )
+        
+        # [cmh]: ensure that the execution of the action is completed
+        self.page = execute_action(
+            create_none_action(),
+            self.page,
+            self.context,
+            self.observation_handler.action_processor,
+        )
+        if len(self.context.pages) > init_pages:
+            for page in self.context.pages:
+                if not hasattr(page, 'client'):
+                    page.client = page.context.new_cdp_session(page)
+                    print("add client to new page")
         return msg
