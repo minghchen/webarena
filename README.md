@@ -40,7 +40,7 @@ To facilitate comparison with the original branch, we added a comment starting w
 **We also fixed some annotation issues.** (We will continue to update more annotation issues)
 
 | Reddit:                                                      |
-| ------------------------------------------------------------ |
+| :----------------------------------------------------------- |
 | task_id 28: "Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the Worcester forum." The answer should be 1 instead of 0. |
 | task_id 407, 408: "Upvote the newest post in deeplearning subreddit" The original answer checked the hottest post instead of the latest post. |
 | task_id 583: "Create a new forum named PlantsForCatParents, with a description of Cat parents & plan lovers, and include ['Cat friendly', 'Local vendors', 'Promotion', 'Toxic plants!'] in the sidebar?" It should be "plant lovers" instead of "plan lovers". |
@@ -78,7 +78,7 @@ UPDATE users SET trusted = true WHERE username = 'MarvelsGrantMan136';
 \q
 ```
 
-Configurate the urls for each website by setting your [AWS hostname](environment_docker/README.md#Pre-installed Amazon Machine Image).
+Configurate the urls for each website by setting your [AWS hostname](./environment_docker/README.md#pre-installed-amazon-machine-image).
 
 ```bash
 export AWS_HOSTNAME="<your-server-hostname>"
