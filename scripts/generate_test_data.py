@@ -6,7 +6,8 @@ from browser_env.env_config import *
 
 
 def main() -> None:
-    with open("config_files/test.raw.json", "r") as f:
+    # task set: test_webarena_lite.raw.json or test.raw.json
+    with open("config_files/test_webarena_lite.raw.json", "r") as f:
         raw = f.read()
     raw = raw.replace("__GITLAB__", GITLAB)
     raw = raw.replace("__REDDIT__", REDDIT)
@@ -14,7 +15,7 @@ def main() -> None:
     raw = raw.replace("__SHOPPING_ADMIN__", SHOPPING_ADMIN)
     raw = raw.replace("__WIKIPEDIA__", WIKIPEDIA)
     raw = raw.replace("__MAP__", MAP)
-    with open("config_files/test.json", "w") as f:
+    with open("config_files/test_webarena_lite.json", "w") as f:
         f.write(raw)
     # split to multiple files
     data = json.loads(raw)
