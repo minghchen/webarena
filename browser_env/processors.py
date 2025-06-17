@@ -674,7 +674,16 @@ class TextObervationProcessor(ObservationProcessor):
         result = page.evaluate("""() => {
             const scrollTop = window.scrollY;
             const innerHeight = window.innerHeight;
-            const totalHeight = document.documentElement.scrollHeight;
+            const totalHeight = document.documentElement ? document.documentElement.scrollHeight : 0;
+
+            if (totalHeight === 0) {
+                return {
+                    atTop: true,
+                    atBottom: true,
+                    abovePercent: 0,
+                    belowPercent: 0,
+                };
+            }
 
             return {
                 atTop: scrollTop === 0,
