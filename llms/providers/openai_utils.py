@@ -98,6 +98,7 @@ def generate_from_openai_chat_completion(
             "OPENAI_API_KEY environment variable must be set when using OpenAI API."
         )
     openai.api_key = os.environ["OPENAI_API_KEY"]
+    openai.base_url = os.environ['OPENAI_URL']
     openai.organization = os.environ.get("OPENAI_ORGANIZATION", "")
     client = openai.OpenAI()
     response = client.chat.completions.create(  # type: ignore
