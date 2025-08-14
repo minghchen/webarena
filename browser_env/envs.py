@@ -98,11 +98,11 @@ class ScriptBrowserEnv(Env[dict[str, Observation], Action]):
         match observation_type:
             case "html" | "accessibility_tree":
                 self.text_observation_type = observation_type
-                self.image_observation_type = ""
+                self.image_observation_type = "image"
                 self.main_observation_type = "text"
             case "image":
-                self.image_observation_type = observation_type
-                self.text_observation_type = ""  # type: ignore[assignment]
+                self.text_observation_type = ""
+                self.image_observation_type = "image"
                 self.main_observation_type = "image"
             case _:
                 raise ValueError(

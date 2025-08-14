@@ -631,7 +631,7 @@ class TextObervationProcessor(ObservationProcessor):
             tab_title_str = " | ".join(tab_titles)
         except Exception:
             tab_title_str = " | ".join(
-                ["Tab {idx}" for idx in range(len(open_tabs))]
+                [f"Tab {idx}" for idx in range(len(open_tabs))]
             )
 
         try:
